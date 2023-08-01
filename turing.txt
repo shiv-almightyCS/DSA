@@ -1,0 +1,2 @@
+Python Garbage Collector
+As we have explained earlier, Python removes those objects that are no longer in use or can say that it frees up the memory space. This process of vanish the unnecessary object's memory space is called the Garbage Collector. The Python garbage collector initiates its execution with the program and is activated if the reference count falls to zero.

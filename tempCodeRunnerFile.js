@@ -1,0 +1,1 @@
+typeof(arr[0])

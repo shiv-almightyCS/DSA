@@ -35,8 +35,41 @@ int findMinimumCost(string str) {
     return ((a+1)/2)+((b+1)/2);
   
 }
+void solve(stack<int>& st,int x){
+    if(st.empty()){
+        st.push(x);
+        return;
+    }
+    int top=st.top();
+    st.pop();
+    solve(st,x);
+    st.push(top);
+}
+
+void reverse(stack<int>& st){
+    if(st.empty())
+        return;
+    int x=st.top();
+    st.pop();
+    reverse(st);
+    solve(st,x);
+}
 
 int main(){
-    string str="{}}{}}";
-    cout<<findMinimumCost(str);
+    stack<int> st;
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(4);
+    // while(!st.empty()){
+    //     cout<<st.top();
+    //     st.pop();
+    // }
+    reverse(st);
+    while(!st.empty()){
+        cout<<st.top();
+        st.pop();
+    }
+    // string str="{}}{}}";
+    // cout<<findMinimumCost(str);
 }

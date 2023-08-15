@@ -95,9 +95,13 @@ int main(){
     st.push(8);
     st.push(4);
     st.push(9);
-    solve(st,x);
+    // solve(st,x);
+    // while(!st.empty()){
+    //     cout<<st.top()<<endl;
+    //     st.pop();
+    // }
     reverse(st);
-    sortStack(st);
+    // sortStack(st);
     while(!st.empty()){
         cout<<st.top()<<endl;
         st.pop();

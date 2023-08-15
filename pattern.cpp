@@ -39,17 +39,17 @@ int main(){
         // cout<<"\n";
     // }
 
-    int arr[5]={6, 2, 8, 4, 10};
-    int n=5;
-    for(int i=0;i<n-1;i++){
-        for(int j=0;j<n-i-1;j++){
-            if(arr[j]>arr[j+1])
-                swap(arr[j],arr[j+1]);
-        }
-    }
-    for(int i=0;i<5;i++){
-        cout<<arr[i]<<" ";
-    }
+    // int arr[5]={6, 2, 8, 4, 10};
+    // int n=5;
+    // for(int i=0;i<n-1;i++){
+    //     for(int j=0;j<n-i-1;j++){
+    //         if(arr[j]>arr[j+1])
+    //             swap(arr[j],arr[j+1]);
+    //     }
+    // }
+    // for(int i=0;i<5;i++){
+    //     cout<<arr[i]<<" ";
+    // }
     // int ans=0,ans1=0;
     // for(int i=0;i<5;i++){
     //     ans=ans^arr[i];
@@ -74,4 +74,33 @@ int main(){
     // }
     // cout<<"Max="<<max<<endl<<"Min="<<min<<endl;
     // cout<<"Max="<<getMax(arr,10)<<endl<<"Min="<<getMin(arr,10)<<endl;
+
+    for(int i=1;i<=4;i++){
+        for(int k=1;k<=4-i;k++){
+            cout<<" ";
+        }
+        // for(int j=1;j<=i;j++){
+        //     cout<<"*"<<" ";
+        // }
+        int j=0;
+        while(j!=2*i-1){
+            cout<<"*";
+            j++;
+        }
+        cout<<endl;
+    }
+    for(int i=4;i>=1;i--){
+        for(int k=1;k<=4-i;k++){
+            cout<<" ";
+        }
+        // for(int j=1;j<=i;j++){
+        //     cout<<"*"<<" ";
+        // }
+        int j=2*i-1;
+        while(j!=0){
+            cout<<"*";
+            j--;
+        }
+        cout<<endl;
+    }
 }

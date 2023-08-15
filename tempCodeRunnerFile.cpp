@@ -1,3 +1,3 @@
-for(int i=0;i<n;i++){
-        //     cin>>arr[i];
+(int k=4;k>i;k--){
+        //     cout<<" ";
         // }

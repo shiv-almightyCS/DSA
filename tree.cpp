@@ -58,10 +58,10 @@ void levelOrderTraversal(node* root){
 }
 
 int main(){
-    // node* root=nullptr;
-    // root=builtTree(root);
-    // levelOrderTraversal(root);
+    node* root=nullptr;
+    root=builtTree(root);
+    levelOrderTraversal(root);
 
-    int arr[5]={1,2,3,4,5};
-    cout<<*(arr);
+    // int arr[5]={1,2,3,4,5};
+    // cout<<*(arr);
 }

@@ -1,22 +1,40 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main(){
-    vector<int> v1;
-    vector<int> nums={-1,0,1,2,-1,-4};
-    vector<vector<int>> v2;
-
-    for(int i=0;i<nums.size();i++){
-        for(int j=i+1;j<nums.size();j++){
-            for(int k=j+1;k<nums.size();k++){
-                if(i!=j && i!=k && j!=k && (nums[i]+nums[j]+nums[k]==0)){
-                    // v1.push_back(nums[i]);
-                    // v1.push_back(nums[j]);
-                    // v1.push_back(nums[k]);
-                    cout<<nums[i]<<" "<<nums[j]<<" "<<nums[k]<<endl;
-                }
-                // v2.push_back(v1);  
-            }
-        }
+string reverseStr(string str){
+    reverse(str.begin(),str.end());
+    for(int i=0;i<str.length();i++){
+        if(str[i]=='1')
+            str[i]='0';
+        else str[i]='1';
     }
+    return str;
+}
+
+string generateString(int n,string ans){
+
+    if(n==1){
+        return "0";
+    }
+    ans=ans+generateString(n-1,ans)+"1"+reverseStr(generateString(n-1,ans));
+    return ans;
+}
+
+vector<int> countBits(int n){
+    vector<int> dp(n+1);
+    dp[0]=0;
+    dp[1]=1;
+    for(int i=2;i<=n;i++){
+        dp[i]=dp[i-pow(2,floor(log2(i)))]+1;
+    }
+    return dp;
+}
+
+int main(){
+    vector<int> ans=countBits(5);
+    for(auto i:ans){
+        cout<<i<<" ";
+    }
+    // string ans=generateString(4,"");
+    // cout<<ans;
 }

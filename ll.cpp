@@ -177,27 +177,81 @@ void print(Node* &head){
     }
     cout<<endl; 
 }
+
+Node* reverseKList(Node* head,int k){
+    if(head==NULL || head->next==NULL || k==0)
+        return head;
+    int cnt=1;
+    Node* temp=head;
+    while(temp->next!=NULL){
+        temp=temp->next;
+        cnt++;
+    }
+    k=k%cnt;
+    if(k==0)
+        return head;
+    Node* prev=NULL;
+    Node* curr=head;
+    while(k!=cnt){
+        prev=curr;
+        curr=curr->next;
+        cnt--;
+    }
+    temp->next=head;
+    prev->next=NULL;
+    return curr;
+}
+Node* insertionSortList(Node* head){
+    if(head==NULL || head->next==NULL)
+        return head;
+    queue<Node*> q;
+    q.push(head);
+    while(!q.empty()){
+        Node* temp=q.front();
+        q.pop();
+        Node* temp1=temp->next;
+        while(temp1!=NULL){
+            if(temp>temp1){
+                temp1->next=temp1;
+            }else{
+                break;
+            }
+        }
+
+    }
+}
+void reorderList(Node* head){
+    if(head==NULL || head->next==NULL || head->next->next==NULL)
+        return;
+    stack<Node*> st;
+    Node* temp=head;
+    while(temp!=NULL && temp->next!=NULL && temp->next->next!=NULL){
+        st.push(temp->next);
+        temp=temp->next->next;
+    }
+    temp=head;
+    while(!st.empty()){
+        Node* newNode=st.top();
+        Node* nextNode=temp->next;
+        st.pop();
+        temp->next=newNode;
+        temp=newNode;
+        temp->next=nextNode;
+        temp=nextNode;
+    }
+}
 int main(){
-    Node* node1=new Node(10);
+    Node* node1=new Node(1);
     Node* head = node1;
     Node* tail = node1;
-    insertAtTail(tail,20);
-    insertAtTail(tail,30);
-    insertAtTail(tail,10);
-    insertAtPosition(head,tail,2,40);
-    insertAtPosition(head,tail,1,69);
-    insertAtPosition(head,tail,5,40);
-    insertAtPosition(head,tail,5,40);
-    insertAtPosition(head,tail,1,50);
-    insertAtPosition(head,tail,3,50);
+    insertAtTail(tail,2);
+    insertAtTail(tail,3);
+    insertAtTail(tail,4);
+    insertAtTail(tail,5);
     print(head); 
-    Node* ans=removeDuplicate(head);
-    print(ans);
-    // Node* ans=sortList(head);
-    // deletion(head,tail,4);
-    // deletion(head,tail,3);
-    // print(ans);
-
-    // Node* reverse=reverseList(ans);
-    // print(reverse);
+    reorderList(head);
+    print(head); 
+    // Node* temp=reverseKList(head,4); 
+    // print(temp); 
+    
 }
